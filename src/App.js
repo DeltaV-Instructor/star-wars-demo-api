@@ -29,9 +29,27 @@ class App extends React.Component {
   //5. Then I want to take that data and add it to state.
   this.setState({
     starWarsChars : starWarsCharacters.data.results
-  })
-
+  });
 };
+
+// 8. locationiq and add env and env sample and look at the location array of objects look at the lat and lon
+// https://us1.locationiq.com/v1/search?key=YOUR_ACCESS_TOKEN&q=SEARCH_STRING&format=json
+// after looking at data add the extension for json https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en 
+
+
+// 10. add getLocationData
+submitCityHandler = async (event) => {
+  event.preventDefault();
+  // make my request to my Api
+  //Add onInput to input
+  let cityData = await axios.get('https://swapi.dev/api/people/?page=1');
+  this.setState({
+    cityDAta : this.state.cityData
+  });
+
+
+}
+
 
   render() {
     // 6. console log the added state
@@ -51,6 +69,15 @@ class App extends React.Component {
         </form>
         {/* 7. add ul and the list variable */}
         {startWarsList}
+
+        {/* 9. add a new form  */}
+        <form onSubmit={this.submitCityHandler}>
+          <label> Pick a City:
+
+            <input type="text" onChange={this.handleCityInput}/>
+          </label>
+          <button type="submit">Get City Data</button>
+        </form>
       </>
      
     )
