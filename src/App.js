@@ -103,7 +103,8 @@ class App extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <button type="submit">Display Star Wars Data</button>
         </form>
-        {/* 7. add ul and the list variable */}
+
+        
 
         {/* 15. add error conditional  */}
         {/* WTF */}
@@ -115,6 +116,7 @@ class App extends React.Component {
           }
           {/* 16. update handleSubmit to set error to false for next use  */}
 
+        {/* 7. add ul and the list variable */}
         <ul>{startWarsList}</ul>
         
 
